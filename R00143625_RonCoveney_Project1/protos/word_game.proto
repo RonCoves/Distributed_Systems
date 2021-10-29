@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package word_game;
+
+service WordGame{
+
+    rpc ping(Empty) returns (Pangram){}
+    
+    rpc getWord(Word) returns (Score){}
+
+}
+
+message Empty{}
+
+message Pangram{
+    string pangram = 1;
+}
+
+message Word{
+    string word = 1;
+}
+
+message Score{
+    string msg = 1;
+    int32 score = 2;
+    string pangram = 3;
+}
